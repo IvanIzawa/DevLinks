@@ -1,0 +1,202 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    color: var(--text-color);
+}
+
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.png);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/MoonStars.svg);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.png);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/Sun.svg);
+}
+
+/*Mobile*/
+
+body{
+    /*
+
+    existem duas formas de estilizar o background, uma delas é ir criando uma por uma como mostrado abaixo.
+
+            background-color: red;
+            background-image: url(./assets/bg-mobile.png);
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+
+    A segunda maneira é usar tudo de uma vez como mostrado abaixo.
+
+            background: color image repeat or not position/size
+
+        acima temos a sequencia que devemos usar para qualquer coisa que coloquemos no background, a sequencia tem que ser exatamente aquela no exemplo acima.
+        abaixo temos a pratica.
+    */
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+#bigbox{
+    margin: 3.5rem auto 0px;
+    display: flex;
+    flex-direction: column;
+
+    width: 22.5rem;
+    height: 44.5rem;
+    padding: 1.5rem;
+}
+    #profile{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 0.5rem;
+        padding: 24px 0;
+    }
+        #profile img{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
+            border: 2px solid var(--stroke-color);
+        }
+
+        #profile h2{
+            margin-top: 0.5rem;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+    .links{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+        .links ul{
+            list-style: none;
+            padding: 24px 0;
+        }
+
+            #buttom-box{
+                display: flex;
+                background: var(--surface-color);
+                border: 1px solid var(--stroke-color);
+                width: 19.5rem;
+                height: 3.5rem;
+                margin: 1rem 0;
+                border-radius: 8px;
+
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                
+                font-family: 'Inter', sans-serif;
+                transition: background .5s;
+            }
+            
+                #buttom-box:hover{
+                background: var(--surface-color-hover);
+                border: 1.5px solid var(--text-color);
+                }
+                .links a{
+                    text-decoration: none;
+                    font-weight: 500;
+                }
+                
+    .social{
+        display: flex;
+        flex-direction: row;
+        
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 24px 0;
+
+        font-size: 24px;
+    }
+        .social a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 16px;
+                border-radius: 50%;
+                transition: background 0.2s;
+        }
+
+            .social a:hover{
+                    background: var(--highlight-color);
+            }
+
+    .footer{
+        text-align: center;
+        padding: 24px 0;
+
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .switch{
+        position: relative;
+        width: 64px;
+
+        margin: 0 auto ;
+        padding: 4px auto;
+    }
+
+        .switch button{
+            width: 32px;
+            height: 32px;
+            background: white var(--switch-bg-url) no-repeat center;
+            border: 0;
+            border-radius: 50%;
+            
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 1;
+
+            transform: translateY(-50%);
+        }
+
+        .light .switch button{
+            right: 0;
+            left: initial;
+        }
+        
+        .switch span{
+            display: block;
+            width: 64px;
+            height: 24px;
+
+            background: var(--surface-color);
+            border: 1px solid var(--stroke-color);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            
+            border-radius: 9999px;
+        }
